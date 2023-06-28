@@ -3,7 +3,6 @@
 @section('content')
 @if(!empty($tasks))
 
- 
 <div class="container">
 <div class="task-wrapper">
 <h1>All TASKS</h1>
@@ -72,7 +71,7 @@
 
 </div>
 </div>
- 
+
    @else
    <h2>No tasks to render...</h2>
 
