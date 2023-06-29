@@ -13,10 +13,6 @@ class Task extends Model
         'title', 'description', 'status_id', 'user_id'
     ];
 
-    protected $appends = [
-        'status', 'username'
-    ];
-
     public static function prepareTaskData(){
         $data = request()->validate(([
             'title'   => 'required|string|min:3|max:50',
@@ -30,18 +26,11 @@ class Task extends Model
         Task::create($data);
     }
 
-    public function getStatusAttribute() {
-        if($this->status_id > count(Status::all()) ||  $this->status_id < 1){
-            $this->status_id = 1;
-        }
-        return Status::find($this->status_id)->name;
+    public function status() {
+        return $this->belongsTo(Status::class);
     }
 
-    public function getUsernameAttribute() {
-        $userIds = User::getUserIds();
-        if(in_array($this->user_id, $userIds)){
-          return User::find($this->user_id)->name;
-        } else return "Anonymous";
-      
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

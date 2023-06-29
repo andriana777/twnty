@@ -22,7 +22,7 @@
       <th scope="row">{{$user['id']}}</th>
       <td>{{$user['name']}}</td>
       <td>{{$user['email']}}</td>
-      <td>{{$user->role}}</td>
+      <td>{{$user->role->name}}</td>
       <td>{{$user['created_at']}}</td>
       <th scope="col"><a href="{{route('user.show', $user->id)}}" class="btn btn-warning">Details</a></th>
       <th scope="col"><a href="{{route('user.edit', $user->id)}}" class="btn btn-success">Edit</a></th>

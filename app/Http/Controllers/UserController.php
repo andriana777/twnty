@@ -24,7 +24,7 @@ public function save(){
 }
 
 public function edit($id)
-{   
+{
     $roles = Role::all();
     $user = User::findOrFail($id);
     return view('pages.users.edit-user', compact('user', 'roles'));
@@ -50,7 +50,7 @@ public function destroy($id)
 }
 
 public function show($id)
-{  
+{
     $user = User::findOrFail($id);
     return view('pages.users.user-info', compact('user'));
 }

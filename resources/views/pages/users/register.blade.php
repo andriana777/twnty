@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
     <select class="form-control" name="role_id" id="role">
- 
+
   @foreach ($roles as $role)
   <option class="form-control" value="{{$role->id}}">{{$role->name}}</option>
   @endforeach

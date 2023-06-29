@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 class TaskFactory extends Factory
 {
@@ -17,13 +18,11 @@ class TaskFactory extends Factory
      */
     public function definition()
     {
-        $statusIds = Status::getStatusIds();
-        $userIds = User::getUserIds();
         return [
             'title' => $this->faker->sentence(1),
             'description' => $this->faker->text(100),
-            'status_id' => array_rand($statusIds, 1),
-            'user_id' => array_rand($userIds, 1)
+            'status_id' => Status::orderBy(DB::raw('RAND()'))->first()->id,
+            'user_id' => User::orderBy(DB::raw('RAND()'))->first()->id
         ];
     }
 }

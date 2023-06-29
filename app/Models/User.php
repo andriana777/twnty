@@ -29,10 +29,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $appends = [
-        'role'
-    ];
-
     public static function prepareUserData(){
         $data = request()->validate(([
             'name'   => 'required|string|min:3|max:50',
@@ -46,20 +42,8 @@ class User extends Authenticatable
         User::create($data);
     }
 
-    public static function getUserIds(){
-        $userIds=[];
-        $users=User::all();
-        foreach ($users as $user){
-            $userIds[] = $user->id;
-        }
-        return $userIds;
+    public function role() {
+        return $this->belongsTo(Role::class);
     }
 
-    public function getRoleAttribute() {
-    if($this->role_id > count(Role::all()) ||  $this->role_id < 1){
-        $this->role_id = 1;
-    }
-    return Role::find($this->role_id)->name;
-}
-    
 }

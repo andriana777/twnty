@@ -12,11 +12,11 @@
 </div>
 <div>
     <p>Username:</p>
-<p>{{$task->username}}</p>
+<p>{{$task->user->name}}</p>
 </div>
 <div>
     <p>Status:</p>
-    <p>{{$task->status}}</p>
+    <p>{{$task->status->name}}</p>
 </div>
 <div>
     <p>Created:</p>

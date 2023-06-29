@@ -12,13 +12,4 @@ class Status extends Model
     protected $fillable = [
         'name'
     ];
-
-    public static function getStatusIds(){
-        $statuses=Status::all();
-        $statusIds =[];
-        foreach ($statuses as $status){
-            $statusIds[] = $status->id;
-        }
-        return $statusIds;
-    }
 }

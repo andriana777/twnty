@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        @includeIf('../partials/back-button')
+
 <form action="{{route('user.update', $user->id)}}" method="POST">
     @csrf
     @method('patch')
     <div class="form-group">
         <label for="name">Name*</label>
-        <input type="text" class="form-control" name="name" 
+        <input type="text" class="form-control" name="name"
         id="name" value="{{$user->name}}" placeholder="Name">
 
         @error('name')
@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         <label for="email">Email*</label>
-        <input type="email" class="form-control" name="email" 
+        <input type="email" class="form-control" name="email"
         id="email" value="{{$user->email}}" placeholder="Email">
 
         @error('email')
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="password">Password*</label>
-        <input type="password" class="form-control" name="password" 
+        <input type="password" class="form-control" name="password"
         id="password" value="{{$user->password}}"placeholder="Password">
 
         @error('password')

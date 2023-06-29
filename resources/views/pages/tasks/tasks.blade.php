@@ -46,8 +46,8 @@
     <tr>
       <th scope="row">{{$task->id}}</th>
       <td>{{$task->title}}</td>
-      <td>{{$task->status}}</td>
-      <td>{{$task->username}}</td>
+      <td>{{$task->status->name}}</td>
+      <td>{{$task->user->name}}</td>
       <td>{{$task->created_at}}</td>
       <td>{{$task->updated_at}}</td>
       <th scope="col"> <a href="{{route('task.show', $task->id)}}" class="btn btn-warning">Details</a></th>
